@@ -93,11 +93,17 @@
   .image-container {
     border: 1px solid var(--secondary-color);
     border-radius: 10px;
-    padding: 10px 20px;
+    padding: 30px 40px;
     margin-right: 25px;
     width: auto;
     background: var(--background);
     box-shadow: var(--box-shadow);
+    transition: transform 0.5 ease;
+  }
+
+  .image-container:hover {
+    cursor: pointer;
+    transform: scale(1.1);
   }
   
   img {
@@ -177,10 +183,12 @@
     margin-right: 50px;
     cursor: pointer;
     color: var(--primary-color);
+    transition: transform 0.5s ease;
   }
   
   .fab:hover {
     color: var(--on-background);
+    transform: scale(1.2);
   }
   
   /* Dark Mode Toggle */
