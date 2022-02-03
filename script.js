@@ -5,6 +5,10 @@ const image1 = document.getElementById('image1');
 const image2 = document.getElementById('image2');
 const image3 = document.getElementById('image3');
 const textBox = document.getElementById('text-box');
+const nightMode = 'Dark Mode';
+const dayMode = 'Light Mode';
+const themeDark = 'dark';
+const themeLight = 'light';
 const dayNight1 = 'rgb(255 255 255 / 50%)'; 
 const dayNight2 = 'rgb(0 0 0 / 50%)';
 const mySun = 'fa-sun';
@@ -27,13 +31,13 @@ function toggleThemDarkLight(dayNight, nightDay, myMode, sun, moon, modeState) {
 // Switch Theme Dynamically
 function switchTheme(event) {
     if(event.target.checked) {
-        document.documentElement.setAttribute(dataTheme, 'dark');
-        localStorage.setItem('theme', 'dark');
-        toggleThemDarkLight(dayNight2, dayNight1, 'Dark Mode', mySun, myMoon, 'dark');
+        document.documentElement.setAttribute(dataTheme, themeDark);
+        localStorage.setItem('theme', themeDark);
+        toggleThemDarkLight(dayNight2, dayNight1, nightMode, mySun, myMoon, themeDark);
     } else {
-        document.documentElement.setAttribute(dataTheme, 'light');
-        localStorage.setItem('theme', 'light')
-        toggleThemDarkLight(dayNight1, dayNight2, 'Light Mode', myMoon, mySun, 'light');
+        document.documentElement.setAttribute(dataTheme, themeLight);
+        localStorage.setItem('theme', themeLight)
+        toggleThemDarkLight(dayNight1, dayNight2, dayMode, myMoon, mySun, themeLight);
     }
 }
 
@@ -44,8 +48,8 @@ toggleSwitch.addEventListener('change', switchTheme);
 const currentTheme = localStorage.getItem('theme');
 if(currentTheme) {
     document.documentElement.setAttribute(dataTheme, currentTheme);
-    if(currentTheme === 'dark') {
+    if(currentTheme === themeDark) {
         toggleSwitch.checked = true;
-        toggleThemDarkLight(dayNight2, dayNight1, 'Dark Mode', mySun, myMoon, 'dark');
+        toggleThemDarkLight(dayNight2, dayNight1, nightMode, mySun, myMoon, themeDark);
     }
 }
